@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCode_generate</title>
+</head>
+<body>
+    <h1>QRコード生成</h1>
+    <form action="/index" method="POST">
+        <p><input type="text" name="data" placeholder="QRコード化する情報"></p>
+        <input type="radio" name="format" value="png" checked><label>png</label>
+        <input type="radio" name="format" value="jpg"><label>jpg</label>
+        <input type="radio" name="format" value="gif"><label >gif</label>
+        <input type="submit" value="QRコード化">
+    </form>
+
+    {% if data %}
+    <h2>↓QRコード↓</h2>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?data={{data}}&amp;size=200x200&format={{format}}" alt="" title=""/>
+    {% endif %}
+</body>
+</html>
